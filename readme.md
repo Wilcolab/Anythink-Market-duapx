@@ -2,7 +2,7 @@
 
 To start the app use Docker. It will start both frontend and backend, including all the relevant dependencies, and the db.
 
-User `docker-compose up` and wait for everything will to be loaded
+Use `docker-compose up` and wait for everything to be loaded
 
 Please find more info about each part in the relevant Readme file ([frontend](frontend/readme.md) and [backend](backend/README.md)).
 

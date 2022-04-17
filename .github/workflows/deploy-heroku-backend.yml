@@ -3,10 +3,11 @@ name: Deploy
 on:
   push:
     branches:
-      - main
+      - heroku-push-3
 
 jobs:
   build:
+    environment: Production
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

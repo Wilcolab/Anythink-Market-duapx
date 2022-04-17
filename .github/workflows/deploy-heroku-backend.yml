@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - main
+      - heroku-push-2
 
 jobs:
   build:
@@ -14,5 +14,4 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "anythink-market-duapx-api"
-          dontuseforce: true
-          remote_branch: "main"
+          heroku_email: "ness@anythink.family"

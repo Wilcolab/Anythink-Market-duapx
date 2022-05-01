@@ -6,9 +6,22 @@ on:
       - main
 
 jobs:
+  check-secret:
+    environment: Production
+    runs-on: ubuntu-latest
+    outputs:
+      heroku-key: ${{ steps.heroku-key.outputs.defined }}
+    steps:
+      - id: heroku-key
+        if: "${{ env.ENV_KEY != '' }}"
+        run: echo "::set-output name=defined::true"
+        env:
+            ENV_KEY: ${{ secrets.HEROKU_API_KEY_TEST }}
+            
   build:
     environment: Production
     runs-on: ubuntu-latest
+    if: needs.check-secret.outputs.heroku-key == 'true'
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
